@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForRecordHome,
+                            forceCommunity:availableForAllPageTypes,
+                            force:hasRecordId"
+                controller="AnimeListController">
+        <aura:attribute name="images" type="List"/>
+        
+        <aura:handler name="init" value="{!this}" action="{!c.displayAnimeImages}"/>
+
+        <h1 class="header-font"> Completed Anime </h1>
+        <br/>
+        <aura:attribute name="colSize" type="Integer" default="4" />
+        <lightning:layout>
+            <!-- 4-of-12 (3 columns) -->
+            <aura:iteration items="{!v.images}" var="column">
+                <lightning:layoutItem size="{!v.colSize}">
+                    <!-- for each column we should have fill the row -->
+                    <lightning:layout multipleRows="true">
+                        <aura:iteration items="{!column}" var="cell">
+                            <lightning:layoutItem size="12">
+                                <div style="margin-top: 5px; ">
+                                    <img style="border-radius:10px;" src="{!cell}" alt="an image"/>
+                                </div>
+                            </lightning:layoutItem>
+                        </aura:iteration>
+                    </lightning:layout>
+                </lightning:layoutItem>
+            </aura:iteration>
+        </lightning:layout>
+</aura:component>	
+
