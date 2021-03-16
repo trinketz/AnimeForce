@@ -1,6 +1,4 @@
-<aura:component implements="flexipage:availableForRecordHome,
-                            forceCommunity:availableForAllPageTypes,
-                            force:hasRecordId"
+<aura:component implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId"
                 controller="AnimeController">
 
 
@@ -21,4 +19,4 @@
             <button class='slds-button slds-button_neutral' onclick="{!c.handleClick}">Add to Anime List</button>
         </aura:set>
     </aura:if>
-</aura:component>	
+</aura:component>

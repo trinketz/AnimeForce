@@ -1,6 +1,4 @@
-<aura:component implements="flexipage:availableForRecordHome,
-                            forceCommunity:availableForAllPageTypes,
-                            force:hasRecordId"
+<aura:component implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId"
                 controller="AnimeListController">
         <aura:attribute name="images" type="List"/>
         
@@ -26,5 +24,4 @@
                 </lightning:layoutItem>
             </aura:iteration>
         </lightning:layout>
-</aura:component>	
-
+</aura:component>

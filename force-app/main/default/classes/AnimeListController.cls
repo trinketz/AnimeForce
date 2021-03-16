@@ -37,4 +37,3 @@ public with sharing class AnimeListController {
         return chunked;
     }
 }
-

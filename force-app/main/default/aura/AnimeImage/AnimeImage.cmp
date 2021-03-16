@@ -1,6 +1,4 @@
-<aura:component implements="flexipage:availableForRecordHome,
-                            forceCommunity:availableForAllPageTypes, 
-                            force:hasRecordId">
+<aura:component implements="flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:hasRecordId">
 
     <!-- attributes -->
     <aura:attribute name="animeRecord" type="Object" description="Anime Record Object"/>
@@ -11,4 +9,4 @@
         targetFields="{!v.animeRecord}"
     />
     <img src="{!v.animeRecord.Cover_Image__c}" style="display:block; margin: auto;" imageType="decorative"/>
-</aura:component>	
+</aura:component>
