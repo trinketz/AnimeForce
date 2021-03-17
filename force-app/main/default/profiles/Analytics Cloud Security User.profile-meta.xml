@@ -141,6 +141,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Anime__c.Is_Featured__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Anime__c.Rated__c</field>
         <readable>true</readable>
     </fieldPermissions>
