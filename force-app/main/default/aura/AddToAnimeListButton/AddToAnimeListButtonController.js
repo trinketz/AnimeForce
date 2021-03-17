@@ -20,7 +20,6 @@
                 component.set('v.isAdded', true);
             } 
         })
-
         $A.enqueueAction(action);
     }, 
 })

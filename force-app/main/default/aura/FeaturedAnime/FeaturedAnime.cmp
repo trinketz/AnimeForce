@@ -2,9 +2,9 @@
                 controller="AnimeListController">
         <aura:attribute name="images" type="List"/>
         
-        <aura:handler name="init" value="{!this}" action="{!c.displayAnimeImages}"/>
+        <aura:handler name="init" value="{!this}" action="{!c.displayFeaturedAnime}"/>
 
-        <h1 class="header-font"> Completed Anime </h1>
+        <h1 class="header-font">Featured Anime</h1>
         <br/>
         <aura:attribute name="colSize" type="Integer" default="4" />
         <lightning:layout>

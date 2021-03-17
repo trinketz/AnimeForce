@@ -4,7 +4,14 @@ public inherited sharing class Utility {
     public Utility() {
         
     }
+    public static List<String> replaceBlankWithPercent(List<String> someList){
+        List<String> s = new List<String>();
 
+        for(String c : someList){
+            s.add(c.replace(' ', '%20'));
+        }
+        return s;
+    }
     public static void populateDatabase(){
 
         List<String> anime = new List<String>();
@@ -22,8 +29,18 @@ public inherited sharing class Utility {
         anime.add('mob psycho');
         anime.add('your lie in april');
         anime.add('code geass');
+        anime.add('jujutsu kaisen');
+        anime.add('yuu yuu hakusho');
+        anime.add('High-rise Invasion');
+        anime.add('Wonder Egg Priority');
+        anime.add('mirai nikki');
+        anime.add('another');
+        anime.add('ao haru ride');
+        anime.add('Gurren Lagann');
 
-        List<Anime__c> digestedAnime = consumeAPI(anime);
+        List<String> animeToDigest = replaceBlankWithPercent(anime);
+
+        List<Anime__c> digestedAnime = consumeAPI(animeToDigest);
         insert digestedAnime;
     }
     
@@ -36,18 +53,16 @@ public inherited sharing class Utility {
         Http http = new Http();
         HttpRequest req = new HttpRequest();
         req.setHeader('Accept', 'application/vnd.api+json');
-        req.setHeader('Content-type', 'application/vnd.api+json');
+        req.setHeader('Content-Type', 'application/vnd.api+json');
 
         for(String a : animeToConsume){
             req.setEndpoint(endpoint + a);
             req.setMethod('GET');
             HttpResponse resp = http.send(req);
-
+            System.debug(a);
             if(resp.getStatusCode() == 200){
-                System.debug(endpoint + a);
                 Object deserializedResponse = JSON.deserializeUntyped(resp.getBody());
                 Map<String, Object> respMap = (Map<String, Object>) deserializedResponse;
-
                 // since our data starts with a list
                 List<Object> data = (List<Object>) respMap.get('data');
 
@@ -71,7 +86,8 @@ public inherited sharing class Utility {
                 Date startDate = Date.valueOf(String.valueOf(attributes.get('startDate')));
 
                 String posterImageUrl = (String) coverImage.get('medium');
-            
+
+                // hard-coded acc (time restraints )
                 Account acc = new Account(Id='0015Y00002btneTQAQ');
                 // create new anime
                 animeList.add(new Anime__c(Name=title,

@@ -4,7 +4,6 @@
 
     <aura:attribute name="animeRecord" type="Object" description="Anime Record Object"/>
     <aura:attribute name="isAdded" type="Boolean" description="True if anime is already added"/>
-
     <force:recordData aura:id="record"
         recordId="{!v.recordId}"
         fields="Account__c, Name"
@@ -12,11 +11,13 @@
     />
     <aura:handler name="init" value="{!this}" action="{!c.init}"/>
     <!-- if anime is already on list -->
+    <div style="overflow:auto"> 
     <aura:if isTrue="{!v.isAdded}">
-        <button class='slds-button slds-button_neutral'> Already Added </button>
+        <button class='slds-button slds-button_neutral slds-float_right'> Already Added </button>
         <!-- else show button that can add -->
         <aura:set attribute="else">
-            <button class='slds-button slds-button_neutral' onclick="{!c.handleClick}">Add to Anime List</button>
+            <button class='slds-button slds-button_neutral slds-float_right' onclick="{!c.handleClick}">Add to Anime List</button>
         </aura:set>
     </aura:if>
+    </div>
 </aura:component>

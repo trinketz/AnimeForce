@@ -24,15 +24,4 @@ public with sharing class AnimeController {
             return true;
         return false;
     }
-    public void getAnimeList(){
-        // Anime_List__c userAnimeList =  [SELECT Anime__c FROM Anime_List__c 
-        // WHERE Anime_List__c.User__c =:userId];
-        // Anime__c show = new Anime__c(Id=animeId);
-        // current contact(anime.Id=Anime__c.id)?
-        
-        // Anime_List__c userAnimeList =  [SELECT Anime__c FROM Anime_List__c 
-        //                                 WHERE Anime_List__c.User__c =:userId];
-
-                                  
-    }
 }
